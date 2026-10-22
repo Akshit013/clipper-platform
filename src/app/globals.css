@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --card: 224 71% 6%;
+    --card-foreground: 213 31% 91%;
+
+    --popover: 224 71% 6%;
+    --popover-foreground: 213 31% 91%;
+
+    --primary: 210 100% 56%;
+    --primary-foreground: 222 47% 98%;
+
+    --secondary: 222 47% 12%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+    --ring: 216 34% 30%;
+
+    --radius: 0.75rem;
+
+    --success: 142 71% 45%;
+    --success-foreground: 144 61% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 48 96% 89%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/20 selection:text-primary;
+  }
+}
+
+.glass-card {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glow-blue {
+  box-shadow: 0 0 25px -5px rgba(59, 130, 246, 0.25);
+}
+
+
+/* Shared interaction and responsive polish across the public site, clipper workspace and admin console. */
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-width: 320px;
+  overflow-wrap: anywhere;
+}
+
+:where(a, button, input, select, textarea, summary, [role="button"]):focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 3px;
+}
+
+:where(button, input, select, textarea) {
+  font: inherit;
+}
+
+:where(button, a) {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:where(input, select, textarea) {
+  min-width: 0;
+}
+
+:where(input:not([type="checkbox"]):not([type="radio"]), select, textarea) {
+  transition: border-color 140ms ease, box-shadow 140ms ease, background-color 140ms ease;
+}
+
+:where(input:not([type="checkbox"]):not([type="radio"]), select, textarea):focus {
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 3px hsl(var(--ring) / 0.16);
+}
+
+:where(button, [role="button"]) {
+  touch-action: manipulation;
+}
+
+.overflow-x-auto {
+  max-width: 100%;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--border)) transparent;
+}
+
+.overflow-x-auto::-webkit-scrollbar { height: 8px; }
+.overflow-x-auto::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 999px; }
+
+:where(table) {
+  font-variant-numeric: tabular-nums;
+}
+
+:where(tbody tr) {
+  transition: background-color 120ms ease;
+}
+
+::selection {
+  background: hsl(var(--primary) / 0.26);
+}
+
+@media (max-width: 640px) {
+  h1 { overflow-wrap: anywhere; }
+  .container { max-width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ClipperPlatform v2 workspace polish: richer surfaces, clearer focus and mobile-safe layouts. */
+body {
+  background-image:
+    radial-gradient(ellipse at 8% -8%, rgba(14, 165, 233, .085), transparent 34rem),
+    radial-gradient(ellipse at 95% 16%, rgba(99, 102, 241, .075), transparent 32rem),
+    linear-gradient(180deg, rgba(3, 7, 18, .35), transparent 42rem);
+  background-attachment: fixed;
+}
+
+.cp-admin-review,
+.cp-clipper-clips { min-width: 0; }
+
+.cp-admin-review :where(button, a),
+.cp-clipper-clips :where(button, a) {
+  transition-property: background-color, color, border-color, box-shadow, transform, opacity;
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+}
+
+.cp-admin-review :where(button:not(:disabled), a[href]):active,
+.cp-clipper-clips :where(button:not(:disabled), a[href]):active { transform: translateY(1px); }
+
+.cp-admin-review :where(table th) { white-space: nowrap; }
+.cp-admin-review :where(table td) { vertical-align: top; }
+
+.cp-admin-review :where(input[type="number"]),
+.cp-clipper-clips :where(input[type="number"]) { font-variant-numeric: tabular-nums; }
+
+@media (max-width: 767px) {
+  .cp-admin-review,
+  .cp-clipper-clips { gap: 1rem; }
+  .cp-admin-review > section:first-child,
+  .cp-clipper-clips > section:first-child { border-radius: 22px; }
+}

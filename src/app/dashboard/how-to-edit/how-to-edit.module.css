@@ -1,0 +1,43 @@
+.page {
+  width: min(1120px, calc(100% - 32px));
+  margin: 30px auto 72px;
+  color: var(--foreground, #111827);
+}
+.hero, .videoCard, .explainer, .steps, .checklist {
+  border: 1px solid #e1e7f0;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.045);
+}
+.hero { padding: clamp(24px, 5vw, 48px); margin-bottom: 22px; background: linear-gradient(140deg, #f5f8ff 0%, #fff 70%); }
+.eyebrow { margin: 0 0 10px; color: #326de6; font-size: 12px; font-weight: 800; letter-spacing: .14em; }
+.hero h1 { margin: 0; font-size: clamp(32px, 4vw, 48px); line-height: 1.1; letter-spacing: -.035em; color: #111827; }
+.intro { max-width: 760px; margin: 16px 0 0; font-size: 17px; line-height: 1.7; color: #53627a; }
+.pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.pills span { border: 1px solid #d7e3ff; border-radius: 999px; padding: 7px 11px; color: #2457b5; background: #eff5ff; font-size: 13px; font-weight: 650; }
+.videoCard, .explainer, .steps, .checklist { padding: clamp(18px, 3vw, 30px); margin-bottom: 22px; }
+.sectionHead { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+.sectionHead h2, .explainer h2, .checklist h2 { margin: 0; color: #172033; font-size: clamp(22px, 2.6vw, 28px); letter-spacing: -.025em; }
+.duration { white-space: nowrap; color: #6b7890; font-size: 13px; border-radius: 999px; background: #f3f6fb; padding: 7px 10px; }
+.video { display: block; width: 100%; max-height: 72vh; aspect-ratio: 16 / 9; object-fit: contain; background: #10131a; border-radius: 12px; }
+.videoNote { margin: 12px 0 0; font-size: 13px; color: #758198; }
+.explainer > p:last-child { color: #53627a; font-size: 16px; line-height: 1.8; max-width: 950px; margin-bottom: 0; }
+.stepGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.step { display: flex; gap: 14px; padding: 18px; border: 1px solid #e7ebf3; border-radius: 14px; background: #fbfcff; }
+.stepNumber { display: grid; place-items: center; flex: 0 0 40px; width: 40px; height: 40px; border-radius: 12px; background: #eaf2ff; color: #2872e5; font-weight: 800; font-size: 13px; }
+.step h3 { margin: 1px 0 8px; font-size: 16px; color: #172033; }
+.step p { margin: 0; color: #5c6880; line-height: 1.65; font-size: 14px; }
+.checklist ul { padding-left: 22px; margin: 16px 0 0; color: #53627a; line-height: 1.85; }
+.footerActions { display: flex; gap: 12px; flex-wrap: wrap; }
+.primaryButton, .secondaryButton { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 18px; border-radius: 12px; text-decoration: none; font-weight: 750; }
+.primaryButton { color: #fff; background: #287cf0; }
+.primaryButton:hover { background: #1766d0; }
+.secondaryButton { color: #1b2a43; background: #fff; border: 1px solid #d9e1ed; }
+.secondaryButton:hover { background: #f6f8fc; }
+@media (max-width: 720px) {
+  .page { width: min(100% - 20px, 1120px); margin-top: 14px; }
+  .stepGrid { grid-template-columns: 1fr; }
+  .sectionHead { align-items: flex-start; }
+  .duration { font-size: 12px; }
+  .video { aspect-ratio: 4 / 3; }
+}

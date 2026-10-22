@@ -1,0 +1,78 @@
+.page { max-width: 1080px; margin: 0 auto; padding: 34px 24px 64px; color: #e8eef8; }
+.topline { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:26px; }
+.backLink { color:#aab7ce; text-decoration:none; font-weight:600; }
+.backLink:hover { color:#fff; }
+.eyebrow { color:#409cff; font-size:12px; letter-spacing:.16em; font-weight:800; text-transform:uppercase; margin:0 0 10px; }
+.title { font-size:clamp(28px,4vw,40px); letter-spacing:-.04em; margin:0 0 10px; color:#f3f6fc; }
+.subtitle { margin:0; line-height:1.6; color:#9cabc3; max-width:720px; }
+.grid { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr); gap:18px; margin-top:26px; align-items:start; }
+.panel { background:#080f1f; border:1px solid #1b2940; border-radius:18px; padding:22px; box-shadow:0 8px 30px rgba(0,0,0,.12); }
+.panel h2 { margin:0 0 8px; font-size:19px; color:#f0f4fb; }
+.panel p { margin:0 0 18px; color:#93a4bf; line-height:1.55; }
+.form { display:grid; gap:14px; }
+.label { display:grid; gap:7px; color:#ced8e8; font-size:13px; font-weight:700; }
+.input,.select,.textarea { width:100%; box-sizing:border-box; border:1px solid #2a3a56; border-radius:10px; padding:12px 13px; color:#f4f7ff; background:#050b17; font:inherit; min-width:0; }
+.input:focus,.select:focus,.textarea:focus { outline:2px solid #3296ff; outline-offset:1px; }
+.primaryButton,.secondaryButton,.dangerButton { border:0; border-radius:10px; padding:12px 15px; cursor:pointer; font:inherit; font-weight:750; }
+.primaryButton { color:white; background:#248fff; }
+.primaryButton:hover { background:#0879ed; }
+.secondaryButton { color:#dce7f8; background:#101c30; border:1px solid #2c3c57; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; }
+.dangerButton { color:#ffb8c0; background:#35141c; border:1px solid #6e2c37; }
+.primaryButton:disabled,.secondaryButton:disabled,.dangerButton:disabled { opacity:.55; cursor:not-allowed; }
+.accountList { display:grid; gap:12px; }
+.accountCard { display:flex; align-items:center; gap:12px; border:1px solid #263650; border-radius:13px; padding:14px; background:#070d19; min-width:0; }
+.avatar { width:42px; height:42px; flex:0 0 42px; display:grid; place-items:center; border-radius:12px; background:#102648; color:#45a1ff; font-weight:900; font-size:20px; }
+.accountInfo { flex:1; min-width:0; }
+.accountInfo strong { display:block; color:#edf4ff; overflow-wrap:anywhere; }
+.accountInfo small { display:block; color:#91a3be; margin-top:4px; }
+.status { display:inline-block; font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:#69dca4; font-weight:800; margin-top:6px; }
+.statusInactive { color:#a9b1bf; }
+.notice { border:1px solid #28415d; border-radius:11px; padding:12px 14px; margin:16px 0; color:#cad9ef; background:#0b1b30; line-height:1.5; }
+.noticeError { border-color:#6f3038; background:#28131a; color:#ffb9c0; }
+.noticeSuccess { border-color:#245c49; background:#0d241f; color:#a6f0d3; }
+.warning { border:1px solid #4b4124; background:#211e13; color:#e7d8a5; border-radius:12px; padding:13px 15px; font-size:13px; line-height:1.6; }
+.empty { padding:24px 16px; text-align:center; border:1px dashed #30415e; border-radius:12px; color:#93a4bf; line-height:1.6; }
+.inlineLinks { display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; }
+.currencyNote { font-size:12px; color:#8295b2; margin-top:18px; }
+@media (max-width:760px) { .page { padding:24px 14px 48px; } .grid { grid-template-columns:1fr; } .panel { padding:17px; } .accountCard { align-items:flex-start; } }
+
+
+/* Consistent creator-workspace finish and mobile layout. */
+.page { width: 100%; }
+.panel {
+  background: linear-gradient(155deg, rgba(13, 23, 42, .98), rgba(7, 13, 25, .98));
+  border-color: rgba(114, 151, 201, .20);
+  box-shadow: 0 16px 38px rgba(0, 0, 0, .16);
+  transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+.panel h2 { letter-spacing: -.025em; }
+.panel p { overflow-wrap: anywhere; }
+.input, .select, .textarea { min-height: 44px; }
+.primaryButton, .secondaryButton, .dangerButton { min-height: 42px; transition: background-color 140ms ease, border-color 140ms ease, transform 140ms ease; }
+.primaryButton:not(:disabled):active, .secondaryButton:not(:disabled):active, .dangerButton:not(:disabled):active { transform: translateY(1px); }
+.metricEntry { min-width: 0; }
+
+@media (max-width: 560px) {
+  .page { padding: 20px 12px 36px; }
+  .grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .panel { border-radius: 15px; padding: 15px; }
+  .metricEntry { grid-template-columns: minmax(0, 1fr) !important; padding: 13px !important; }
+  .metricEntry > div:first-child { grid-column: auto !important; }
+  .inlineLinks { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .inlineLinks > a { width: 100%; }
+  .primaryButton, .secondaryButton, .dangerButton { width: 100%; text-align: center; }
+}
+
+/* Stronger creator-workspace hierarchy and touch-friendly interaction states. */
+.page { position: relative; }
+.page::before { content: ""; position: absolute; z-index: -1; pointer-events: none; width: min(70vw, 620px); height: 420px; right: -8%; top: -90px; background: radial-gradient(ellipse, rgba(37, 140, 255, .105), transparent 68%); }
+.panel { position: relative; overflow: hidden; }
+.panel::before { content: ""; position: absolute; inset: 0 0 auto; height: 1px; background: linear-gradient(90deg, transparent, rgba(125, 190, 255, .4), transparent); opacity: .65; pointer-events: none; }
+.panel:hover { border-color: rgba(114, 180, 255, .32); box-shadow: 0 20px 48px rgba(0, 0, 0, .24); }
+.primaryButton { background: linear-gradient(115deg, #36bff6, #328bff 58%, #7367ff); box-shadow: 0 10px 25px rgba(40, 132, 255, .2); }
+.primaryButton:hover:not(:disabled) { filter: brightness(1.08); box-shadow: 0 12px 30px rgba(40, 132, 255, .3); }
+.secondaryButton:hover:not(:disabled) { border-color: rgba(100, 174, 255, .45); background: #152744; }
+.input:focus, .select:focus, .textarea:focus { border-color: #4ab6ff; box-shadow: 0 0 0 4px rgba(54, 173, 255, .11); }
+@media (hover: hover) and (pointer: fine) {
+  .accountCard:hover { transform: translateY(-2px); border-color: rgba(80, 166, 255, .42); }
+}
